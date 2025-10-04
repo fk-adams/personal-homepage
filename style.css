@@ -1,0 +1,64 @@
+/* Reset some default spacing */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* Header styling */
+header {
+  background: #333;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+header nav a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+header nav a:hover {
+  text-decoration: underline;
+}
+
+.nav-link {
+  display: inline-block;   /* makes it act like a button */
+  padding: 10px 20px;      /* space inside */
+  margin: 5px;             /* space between buttons */
+  background: #007acc;     /* blue background */
+  color: white;            /* white text */
+  text-decoration: none;   /* remove underline */
+  border-radius: 5px;      /* rounded corners */
+  transition: background 0.3s ease; /* smooth hover */
+}
+
+.nav-link:hover {
+  background: #005f99;     /* darker blue when hovered */
+}
+
+
+/* About section */
+#about {
+  padding: 20px;
+  background: #f4f4f4;
+}
+
+#about img {
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+/* Contact section */
+#contact {
+  padding: 20px;
+}
+
+/* Footer */
+footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}

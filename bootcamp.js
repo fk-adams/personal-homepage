@@ -83,3 +83,88 @@ do{
     num++;
 }while(num <11);
 
+
+
+for (let i = 1; i <= 50; i++) {
+    if (i % 4 === 0) continue;
+
+    if (i % 13 === 0) break;
+
+    console.log(i);
+}
+
+
+let fizz = 0;
+let buzz = 0;
+let fizzBuzzCounter = 0;
+
+for (let i = 1; i <= 150; i++) {
+    if (i % 10 === 7) continue;
+
+    if (i % 3 === 0 && i % 5 === 0) {
+        console.log("FizzBuzz");
+        fizzBuzzCounter++;
+        if (fizzBuzzCounter === 11) break;
+    } else if (i % 3 === 0) {
+        console.log("Fizz");
+        fizz++;
+    } else if (i % 5 === 0) {
+        console.log("Buzz");
+        buzz++;
+    } else {
+        console.log(i);
+    }
+
+    if (i % 20 === 0) {
+      console.log(`Progress report → Fizz: ${fizz}, Buzz: ${buzz}, FizzBuzz: ${fizzBuzzCounter}`);
+    }
+}
+
+
+// let counter = 1;
+
+// for (let i = 1; i <= 3; i++) {
+//     let rowOutput = "";
+
+//     for (let j = 1; j <= 3; i++) {
+//         rowOutput += counter + " ";
+//         counter++;
+//     }
+//     console.log(rowOutput);
+// }
+
+
+for (let row = 1; row <= 4; row++) {
+    let rowOutput = "";
+
+    for (let col = 1; col <= 4; col++) {
+        rowOutput += `(${row}, ${col}) ` + "";
+    }
+    console.log(rowOutput.trim());
+}
+
+
+let counter = 1;
+for (let i = 1; i <= 5; i++) {
+    let rowSpace = "";
+
+    for (let j = 1; j <= 5; j++) {
+        rowSpace += counter.toString().padStart(2, '0') + " ";
+        counter++;
+    }
+
+    console.log(rowSpace);
+}
+
+
+let cout = 1;
+
+for (let i = 1; i <= 6; i++) {
+    let space = "";
+
+    for (let j = 1; j <= 6; j++) {
+        space += (i * j).toString().padStart(2, '0') + " ";
+        cout++;
+    }
+    console.log(space);
+}

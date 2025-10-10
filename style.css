@@ -24,18 +24,18 @@ header nav a:hover {
 }
 
 .nav-link {
-  display: inline-block;   /* makes it act like a button */
-  padding: 10px 20px;      /* space inside */
-  margin: 5px;             /* space between buttons */
-  background: #007acc;     /* blue background */
-  color: white;            /* white text */
-  text-decoration: none;   /* remove underline */
-  border-radius: 5px;      /* rounded corners */
-  transition: background 0.3s ease; /* smooth hover */
+  display: inline-block;   
+  padding: 10px 20px;     
+  margin: 5px;            
+  background: #007acc;     
+  color: white;       
+  text-decoration: none;  
+  border-radius: 5px;     
+  transition: background 0.3s ease; 
 }
 
 .nav-link:hover {
-  background: #005f99;     /* darker blue when hovered */
+  background: #005f99;  
 }
 
 

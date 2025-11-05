@@ -263,4 +263,57 @@ Printed: ${printedCounter}
 Total '8'-enders: ${eightCounter}`);
 
 
+let skipped = 0;
+let printed = 0;
+for (let i = 1; i <= 50; i++) {
+  if (i % 5 === 0) {
+    skipped++;
+    continue;
+  }
+
+  console.log(i);
+  printed++;
+
+  if (i === 37) break;
+}
+console.log(`Skipped: ${skipped}, Printed: ${printed}`);
+console.log(" ");
+
+let evenCount = 0;
+let nineDivisible = 0;
+
+for (let i = 1; i <= 60; i++) {
+  if (i % 2 === 0) {
+    evenCount++;
+  }
+
+  if (i % 9 === 0) {
+    nineDivisible++;
+  }
+  console.log(i);
+}
+console.log(`Even: ${evenCount}, Divisible by 9: ${nineDivisible}`);
+
+console.log(" ");
+
+let quadHexCount = 0;
+for (let i = 1; i <= 100; i++) {
+  if (i % 10 === 8) {
+    continue;
+  }
+  if (i % 4 === 0 && i % 6 === 0) {
+    console.log("QuadHex");
+    quadHexCount++;
+    if (quadHexCount === 8) break;
+  } else if (i % 4 === 0) {
+    console.log("Quad");
+  } else if (i % 6 === 0) {
+    console.log("Hex");
+  } else {
+    console.log(i);
+  }
+}
+console.log(`QuadHex count: ${quadHexCount}`);
+
+
 

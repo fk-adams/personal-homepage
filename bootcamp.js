@@ -315,5 +315,63 @@ for (let i = 1; i <= 100; i++) {
 }
 console.log(`QuadHex count: ${quadHexCount}`);
 
+// let skipped  = 0;
+// let printed = 0;
+
+// for (let i = 1; i <= 30; i++) {
+//   if (i % 4 === 0) {
+//     skipped++;
+//     continue;
+//   }
+  
+//   console.log(i);
+//   printed++;
+
+//   if (i === 25) break;
+// }  console.log(`Skipped: ${skipped}, Printed: ${printed}`);
+
+
+
+// let fizz = 0;
+// let buzz = 0;
+// let fizzBuzz = 0;
+// let fizzBuzzCounter = 0;
+
+// for (let i = 1; i <= 150; i++) {
+//   // Skip numbers ending in 7
+//   if (i % 10 === 7) continue;
+
+//   if (i % 3 === 0 && i % 5 === 0) {
+//     console.log("FizzBuzz");
+//     fizzBuzz++;
+//     fizzBuzzCounter++;
+//   } else if (i % 3 === 0) {
+//     console.log("Fizz");
+//     fizz++;
+//   } else if (i % 5 === 0) {
+//     console.log("Buzz");
+//     buzz++;
+//   } else {
+//     console.log(i);
+//   }
+
+//   if (fizzBuzzCounter === 10) break;
+// }
+
+// let oddCount = 0;
+
+// for(let i = 10; i >= 1; i--) {
+//   if(i % 2 === 0) continue;
+
+//   console.log(i);
+//   oddCount++;
+
+//   if(oddCount === 5) {
+//     console.log("HALT AT 5!");
+//     break;
+//   }
+// }
+
+// console.log(`Total odd numbers printed: ${oddCount}`);
 
 

@@ -208,7 +208,7 @@ for (let i = 1; i <= 30; i++) {
 let userInput = prompt("Enter a number:");
 let limit = prompt("Enter a limit (Numbers only!)");
 
-
+   
   if (isNaN(userInput) || isNaN(limit)) {
    alert("Invalid input. Please enter numbers only.");
 } 
@@ -225,7 +225,42 @@ let limit = prompt("Enter a limit (Numbers only!)");
        }
    }
 
+logCounter = 0;
 
+for (let i = 100; i >= 1; i--) {
+  if (i % 9 === 0) continue;
+  console.log(i);
+  logCounter++;
+  if (logCounter === 10) break;
+  
+}
+
+let eightCounter = 0;
+let skippedCounter = 0;
+let printedCounter = 0;
+
+for (let i = 1; i <= 100; i++) {
+  if (i % 10 === 3 || i % 4 === 0) {
+    skippedCounter++;
+    continue;
+  }
+
+  console.log(i);
+  printedCounter++;
+
+  if (i % 10 === 8) {
+    eightCounter++;
+    if (eightCounter === 5) {
+      console.log("🛑 Fifth number ending with 8 found. Stopping loop...");
+      break;
+    }
+  }
+}
+
+console.log(`\n📊 Final Report:
+Skipped: ${skippedCounter}
+Printed: ${printedCounter}
+Total '8'-enders: ${eightCounter}`);
 
 
 

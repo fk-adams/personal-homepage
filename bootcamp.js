@@ -168,3 +168,64 @@ for (let i = 1; i <= 6; i++) {
     }
     console.log(space);
 }
+
+for (let i = 5; i <= 15; i++) {
+  console.log(i);
+} console.log(" ");
+
+ for (let i = 20; i >= 10; i--) {
+  console.log(i);
+} console.log("");
+
+for (let i = 1; i <= 20; i++) {
+  if (i % 2 === 0)continue
+  console.log(i);
+}console.log(" ");
+
+
+multiplication = 0;
+
+for (let i = 1; i <= 12; i++) {
+  multiplication = i * 7;
+  console.log(`${i} * 7 = ${multiplication}`);
+}
+
+
+for (let i = 1; i <= 30; i++) {
+   
+     if (i === 26) break;
+      if (i % 10 === 4) continue;
+    
+      if (i % 2 === 0) {
+        if (i === 20) {
+          console.log("Halfway there!");
+        }else {
+          console.log(i);
+        }
+      }
+}
+
+let userInput = prompt("Enter a number:");
+let limit = prompt("Enter a limit (Numbers only!)");
+
+
+  if (isNaN(userInput) || isNaN(limit)) {
+   alert("Invalid input. Please enter numbers only.");
+} 
+   else {
+       userInput = Number(userInput);
+       limit = Number(limit);
+
+       for (let i = 1; i <= limit; i++){
+            if (i % 10 === 7) continue;
+    
+            if (i % userInput === 0) break; 
+            
+            console.log(i);
+       }
+   }
+
+
+
+
+

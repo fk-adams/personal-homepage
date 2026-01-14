@@ -375,3 +375,171 @@
 // // console.log(`Total odd numbers printed: ${oddCount}`);
 
 
+Write a for loop from 1 to 100. Print every number, but:
+
+Skip numbers divisible by 8.
+
+Stop the loop completely when you encounter the first number that is divisible by both 7 and 5.
+
+What gets printed before the loop stops?
+
+for (let i = 1; i <= 100; i++) {
+  if(i % 8 === 0) continue;
+
+  console.log(i);
+
+  if (i % 7 === 0 && i % 5 === 0) break;
+}
+
+Puzzle 2 — Counter Clash
+
+Loop i from 1 to 50. Maintain two counters:
+
+a increments when i is divisible by 3.
+
+b increments when i is divisible by 4.
+
+But if i is divisible by both 3 and 4, increment neither counter (skip it).
+After the loop, print a and b.
+
+Write the code and the final values of a and b.
+
+let threeCounter = 0;
+let fourCounter = 0;
+
+for (let i = 1; i <= 50; i++) {
+  if (i % 3 === 0 && i % 4 === 0) continue;
+  
+    else if (i % 3 === 0) {
+      threeCounter++;
+    }else if(i % 4 === 0) {
+      fourCounter++
+    }
+
+    else{
+      console.log(i);
+    }
+
+} console.log(`Sum of three counter: ${threeCounter}. Sum of four counter: ${fourCounter}.`);
+
+Puzzle 3 — The Alternator
+
+Write code that prints the numbers 1 to 20, but replaces:
+
+every 3rd printed value (not every number) with the word "THIRD".
+
+every 5th printed value with the word "FIFTH".
+
+when a printed position is both 3rd and 5th (i.e., 15th printed value), print "BOTH".
+
+Important: positions count only the values you actually print (so if you continue somewhere, that skipped value does not advance the printed-position count). Provide code and the resulting printed sequence.
+
+let counter = 0;
+
+for (let i = 1; i <= 20; i++) {
+    counter++;
+    if (counter % 15 === 0) {
+      console.log("Both");
+    }else if(counter % 3) {
+      console.log("Third");
+    }else if (counter % 5) {
+      console.log("Fifth");
+    }else{
+      console.log(i);
+    }
+}
+
+Puzzle 4 — Mod Mixup
+
+Loop n from 1 to 200. Track x = 0.
+
+If n % 2 === 0, add 2 to x.
+
+If n % 3 === 0, add 3 to x.
+
+If n % 5 === 0, add 5 to x.
+If none apply, subtract 1 from x.
+Stop when x becomes >= 50 and print the n where it happened and the final x value.
+
+Provide the code and the n and x.
+
+let x = 0;
+let stopN = 0;
+
+for(n = 1; n <= 200; n++) {
+  let added = false;
+  if (n % 2 === 0) {
+      x+= 2;
+      added = true;
+  }if (n % 3 === 0) {
+      x+= 3;
+      added = true;
+  }if (n % 5 === 0) {
+      x+= 5;
+      added = true;
+  }
+
+  if(!added) {
+    x-=1;
+  }
+
+  if(x >= 50) {
+    stopN = n;
+    break;
+  }
+}
+
+
+Puzzle 5 — The Skip Race
+
+For i from 1 to 100, do:
+
+If i ends with 1 or 4 (last digit), skip it.
+
+Print numbers that are prime only (you may write a helper function to test primality).
+
+Stop when you have printed 10 primes; report how many numbers were skipped in total.
+
+Return code and the skip count.
+
+function isPrime(num) {
+    if (num < 2) return false;
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) return false;
+    }
+    return true;
+}
+
+let skippo = 0;
+let primeCounter = 0;
+
+for (let i = 1; i <= 100; i++) {
+    // Check if number ends with 1 or 4
+    if (i % 10 === 1 || i % 10 === 4) {
+        skippo++;
+        continue;
+    }
+    
+    // Check if number is prime
+    if (isPrime(i)) {
+        console.log(i);
+        primeCounter++;
+        
+        // Stop when we have 10 primes
+        if (primeCounter === 10) break;
+    }
+}
+
+console.log(`Prime counter: ${primeCounter}, Skipped: ${skippo}`);
+
+
+Puzzle 6 — Tiny Logic Stress-test (one-liner logic + explanation)
+
+Without loops, using only arithmetic and boolean logic, 
+can you determine whether a positive integer m is divisible 
+by 6 but not by 9? Write the shortest expression (in JS) that 
+yields true/false for that condition and explain it in one sentence.
+
+m % 6 === 0 && m % 9 !== 0
+
+

@@ -3,35 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Adams' Personal Homepage</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+
+  <style>
+      
+
+      .Yellow-button{
+        background: yellow;
+      }
+
+      .Orange-button{
+        background-color: orange;
+      }
+  </style>
 </head>
 <body>
-  <!-- Header Section -->
-  <header>
-    <h1>Welcome to My Homepage</h1>
-    <nav>
-      <a href="#about" class="nav-link">About</a> | 
-      <a href="#contact" class="nav-link">Contact</a>
-    </nav>
-  </header>
+    <p>Adults plain cotton T-shirt</p>
 
-  <!-- About Section -->
-  <section id="about">
-    <h2>About Me</h2>
-    <p>Hello! My name is Adams. I’m learning to become a Frontend Developer step by step.</p>
-    <img src="b&w.jpg" alt="Photo of Adams" width="200">
-  </section>
+    <p>Price: $7.99</p>
 
-  <!-- Contact Section -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>You can reach me at: <a href="mailto:yourname@email.com">adamzfriday@gmail.com</a></p>
-  </section>
+    <button class="Yellow-button" onclick="alert('Added');">Add to cart</button>
+    <button class="Orange-button" onclick="alert('Purchased');">Buy Now</button>
 
-  <!-- Footer Section -->
-  <footer>
-    <p>&copy; 2025 Adams. All rights reserved.</p>
-  </footer>
+
+
+    <p>Cart Quantity</p>
+    <button onclick=" console.log(`Cart Quantity: ${cartQuantity}`);">Show Quantity</button>
+    <button onclick=" cartQuantity = cartQuantity + 1; console.log(`Cart Quantity: ${cartQuantity}`);">Add to Cart</button>
+    <button onclick=" cartQuantity = cartQuantity + 2; console.log(`Cart Quantity: ${cartQuantity}`);">+2</button>
+    <button onclick=" cartQuantity = cartQuantity + 3; console.log(`Cart Quantity: ${cartQuantity}`);">+3</button>
+    <button onclick=" cartQuantity = 0; console.log(`Cart was reset, zero items in cart now`);">Reset Cart</button>
+    
+  <script>
+    console.log("Loading...");
+
+    let cartQuantity = 0;
+  </script>
 </body>
 </html>

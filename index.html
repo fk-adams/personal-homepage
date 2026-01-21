@@ -18,7 +18,7 @@
   </style>
 </head>
 <body>
-    <p>Adults plain cotton T-shirt</p>
+    <!-- <p>Adults plain cotton T-shirt</p>
 
     <p>Price: $7.99</p>
 
@@ -40,16 +40,27 @@
     <button onclick=" cartQuantity = 0; console.log(`Cart was reset, zero items in cart now`);">Reset Cart</button>
 
 
-    let name = "Slim Shady";
-console.log("name");
-let cost = 5 + 6 + 9;
-console.log(`Cost of food: $${cost}`);
 
-cost = cost * 0.1;
+     -->
 
-    
+     <p>
+      <button onclick=" calculation += '1'; console.log(`${calculation}`);">1</button>
+      <button onclick=" calculation += '2'; console.log(`${calculation}`);">2</button>
+      <button onclick=" calculation += '3'; console.log(`${calculation}`);">3</button>
+     </p>
+
+     <p>
+      <button onclick=" calculation += '4'; console.log(`${calculation}`);">4</button>
+      <button onclick=" calculation += '5'; console.log(`${calculation}`);">5</button>
+      <button onclick=" calculation += '6'; console.log(`${calculation}`);">6</button>
+     </p>
+
+     <p>
+      <button onclick=" calculation += '+'; console.log(`${calculation}`);">+</button>
+      <button onclick=" calculation += '-'; console.log(`${calculation}`);">-</button>
+      <button onclick=" eval(calculation); calculation = eval(calculation); console.log(calculation);">=</button></p>
   <script>
-    console.log("Loading...");
+  /*   console.log("Loading...");
 
     let cartQuantity = 0;
 
@@ -65,6 +76,9 @@ cost = cost * 0.1;
     let totalCost = tax + cost;
     console.log(`Total cost: $${cost} + ${tax}`);
 
+   */  
+    
+   let calculation = "";
     
   </script>
 </body>

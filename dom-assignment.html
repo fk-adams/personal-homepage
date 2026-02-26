@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM ASSIGNMENT</title>
+</head>
+<body>
+    <button class="js-subscribe-button" onclick="
+        document.querySelector('.js-subscribe-button').innerHTML = 'Subscribed';
+        ">Subscribe</button>
+
+    <p>Amazon shipping calculator</p>
+    <p>Orders under $40 = +$10 shipping</p>
+    <p>Orders over $40 = free shipping</p>
+    <input type="text" class="js-calculate-button" placeholder="Cost of order" onkeydown="calculateShippingKeyDown(event);">
+    <button type="submit" onclick="calculateShipping();">Submit</button>
+    <p class="js-order-cost"></p>
+
+    <input type="text" class="js-input-name" placeholder="Enter Your Name" onkeydown="nameDisplayKeyDown(event);">
+    <button type="submit" onclick="nameDisplay();">Submit</button>
+    <p class="js-name-display"></p>
+
+    <button onclick="document.querySelector('.js-coin-output').innerHTML = `You chose Heads`">Heads</button>
+    <button onclick="document.querySelector('.js-coin-output').innerHTML = `You chose Tails`">Tails</button>
+    <p class="js-coin-output"></p>
+
+    <script>
+        function calculateShippingKeyDown(event){
+            if(event.key === 'Enter'){
+                calculateShipping();
+            }
+        }
+
+        function calculateShipping(){
+            const orderInputElement = document.querySelector('.js-calculate-button');
+            let cost = Number(orderInputElement.value) * 100;
+
+            if(cost < 4000){
+                cost = cost + 1000;
+            }
+
+            document.querySelector('.js-order-cost').innerHTML = `$${cost / 100}`
+        }
+
+        function nameDisplayKeyDown(event){
+            if(event.key === 'Enter'){
+                nameDisplay();
+            }
+        }
+
+        function nameDisplay(){
+            const nameElement = document.querySelector('.js-input-name');
+            document.querySelector('.js-name-display').innerHTML = `Your name is: ${nameElement.value}`;
+        }
+
+    </script>
+</body>
+</html>

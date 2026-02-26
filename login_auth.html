@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Secure Login</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Saira', sans-serif; 
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#121212,#1e1e2f);
+    color:#f8f8f8;
+}
+
+form{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    padding:50px;
+    border-radius:12px;
+    background:rgba(255,255,255,0.06);
+    backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,0.1);
+}
+
+.input-wrapper{
+    position:relative;
+}
+
+input{
+    width:300px;
+    padding:12px 40px 12px 12px;
+    font-size:16px;
+    font-weight:600;
+    border-radius:8px;
+    border:none;
+}
+
+input:focus{
+    outline:none;
+}
+
+.eye{
+    position:absolute;
+    right:10px;
+    top:50%;
+    transform:translateY(-50%);
+    cursor:pointer;
+    font-size:14px;
+    color:#aaa;
+}
+
+button{
+    width:300px;
+    padding:12px;
+    font-size:16px;
+    font-weight:600;
+    border-radius:8px;
+    border:none;
+    background:#1d596b;
+    color:white;
+    cursor:pointer;
+    transition:0.2s ease;
+}
+
+button:hover{
+    opacity:0.9;
+}
+
+button:disabled{
+    cursor:not-allowed;
+    opacity:0.5;
+}
+
+/* Spinner */
+.spinner{
+    border:3px solid rgba(255,255,255,0.3);
+    border-top:3px solid white;
+    border-radius:50%;
+    width:18px;
+    height:18px;
+    animation:spin 0.7s linear infinite;
+    margin:auto;
+}
+
+@keyframes spin{
+    to{transform:rotate(360deg);}
+}
+
+/* Message */
+.Paragraph{
+    font-size:14px;
+    font-weight:600;
+    min-height:20px;
+    opacity:0;
+    transform:translateY(-5px);
+    transition:all 0.3s ease;
+}
+
+.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.success{
+    color:#4CAF50;
+}
+
+.error{
+    color:#ff4d4d;
+}
+
+/* Shake */
+@keyframes shake{
+    0%{transform:translateX(0);}
+    25%{transform:translateX(-5px);}
+    50%{transform:translateX(5px);}
+    75%{transform:translateX(-5px);}
+    100%{transform:translateX(0);}
+}
+
+.shake{
+    animation:shake 0.3s;
+}
+
+/* Centered Welcome */
+#welcomeMessage{
+    font-size:32px;
+    font-weight:700;
+}
+</style>
+</head>
+<body>
+
+<form>
+    <div class="input-wrapper">
+        <input type="password" class="inputPassword" placeholder="Enter Password">
+        <span class="eye">👁</span>
+    </div>
+
+    <button type="button" class="submitBtn">Submit</button>
+    <p class="Paragraph"></p>
+</form>
+
+<script>
+const inputElement = document.querySelector('.inputPassword');
+const message = document.querySelector('.Paragraph');
+const button = document.querySelector('.submitBtn');
+const eye = document.querySelector('.eye');
+
+const password = "@23Huvkl*Berry";
+
+let attempts = 0;
+let countdownInterval = null;
+
+/* Toggle visibility */
+eye.addEventListener('click', ()=>{
+    inputElement.type = inputElement.type === "password" ? "text" : "password";
+});
+
+/* Enter key */
+inputElement.addEventListener('keydown', (e)=>{
+    if(e.key === "Enter") logOn();
+});
+
+button.addEventListener('click', logOn);
+
+function logOn(){
+
+    if(button.disabled) return;
+
+    message.classList.remove("success","error","show");
+
+    const userInput = inputElement.value.trim();
+
+    button.innerHTML = `<div class="spinner"></div>`;
+    button.disabled = true;
+
+    setTimeout(()=>{
+
+        button.textContent = "Submit";
+        button.disabled = false;
+
+        if(userInput === password){
+
+            // ✅ Clear page content and show welcome message
+            document.body.innerHTML = `<div id="welcomeMessage">Welcome, User!</div>`;
+
+        } else {
+
+            attempts++;
+            inputElement.classList.add("shake");
+            setTimeout(()=>inputElement.classList.remove("shake"),300);
+
+            if(attempts >= 3){
+                startLockCountdown();
+            } else {
+                message.textContent = `✖ Wrong Password (${attempts}/3)`;
+                message.classList.add("error","show");
+            }
+        }
+
+        inputElement.value = "";
+
+    },1000);
+}
+
+function startLockCountdown(){
+
+    let timeLeft = 10;
+    button.disabled = true;
+
+    message.classList.add("error","show");
+
+    countdownInterval = setInterval(()=>{
+        message.textContent = `Locked. Try again in ${timeLeft}s`;
+        timeLeft--;
+
+        if(timeLeft < 0){
+            clearInterval(countdownInterval);
+            attempts = 0;
+            button.disabled = false;
+            message.textContent = "You can try again.";
+            message.classList.remove("error");
+            message.classList.add("success");
+        }
+
+    },1000);
+}
+</script>
+
+</body>
+</html>

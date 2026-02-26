@@ -1,59 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DOM ASSIGNMENT</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DOM Assignment - Optimized UI</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: #f0f2f5;
+        color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 100vh;
+        padding: 40px 20px;
+    }
+
+    .container {
+        max-width: 400px;
+        width: 100%;
+        background: #fff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #1a73e8;
+    }
+
+    section {
+        margin-bottom: 30px;
+    }
+
+    p {
+        margin: 6px 0;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 10px 12px;
+        font-size: 14px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        outline: none;
+        transition: 0.2s;
+    }
+
+    input[type="text"]:focus {
+        border-color: #1a73e8;
+        box-shadow: 0 0 6px rgba(26,115,232,0.3);
+    }
+
+    button {
+        padding: 10px 16px;
+        font-size: 14px;
+        font-weight: 600;
+        border-radius: 6px;
+        border: none;
+        background-color: #1a73e8;
+        color: white;
+        cursor: pointer;
+        transition: 0.2s;
+        margin-right: 6px;
+        margin-top: 5px;
+    }
+
+    button:hover {
+        background-color: #1662c3;
+    }
+
+    .output {
+        font-weight: 600;
+        margin-top: 8px;
+        color: #1a73e8;
+    }
+
+    .coin-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+
+</style>
 </head>
 <body>
-    <button class="js-subscribe-button" onclick="
-        document.querySelector('.js-subscribe-button').innerHTML = 'Subscribed';
+
+<div class="container">
+    <h2>DOM Assignment</h2>
+
+    <section>
+        <button class="js-subscribe-button" onclick="
+            document.querySelector('.js-subscribe-button').innerHTML = 'Subscribed';
         ">Subscribe</button>
+    </section>
 
-    <p>Amazon shipping calculator</p>
-    <p>Orders under $40 = +$10 shipping</p>
-    <p>Orders over $40 = free shipping</p>
-    <input type="text" class="js-calculate-button" placeholder="Cost of order" onkeydown="calculateShippingKeyDown(event);">
-    <button type="submit" onclick="calculateShipping();">Submit</button>
-    <p class="js-order-cost"></p>
+    <section>
+        <p>Amazon Shipping Calculator</p>
+        <p>Orders under $40 = +$10 shipping</p>
+        <p>Orders over $40 = Free shipping</p>
+        <input type="text" class="js-calculate-button" placeholder="Cost of order" onkeydown="calculateShippingKeyDown(event);">
+        <button type="submit" onclick="calculateShipping();">Submit</button>
+        <p class="js-order-cost output"></p>
+    </section>
 
-    <input type="text" class="js-input-name" placeholder="Enter Your Name" onkeydown="nameDisplayKeyDown(event);">
-    <button type="submit" onclick="nameDisplay();">Submit</button>
-    <p class="js-name-display"></p>
+    <section>
+        <input type="text" class="js-input-name" placeholder="Enter Your Name" onkeydown="nameDisplayKeyDown(event);">
+        <button type="submit" onclick="nameDisplay();">Submit</button>
+        <p class="js-name-display output"></p>
+    </section>
 
-    <button onclick="document.querySelector('.js-coin-output').innerHTML = `You chose Heads`">Heads</button>
-    <button onclick="document.querySelector('.js-coin-output').innerHTML = `You chose Tails`">Tails</button>
-    <p class="js-coin-output"></p>
+    <section>
+        <p>Coin Flip</p>
+        <div class="coin-buttons">
+            <button onclick="document.querySelector('.js-coin-output').innerHTML = `You chose Heads`">Heads</button>
+            <button onclick="document.querySelector('.js-coin-output').innerHTML = `You chose Tails`">Tails</button>
+        </div>
+        <p class="js-coin-output output"></p>
+    </section>
+</div>
 
-    <script>
-        function calculateShippingKeyDown(event){
-            if(event.key === 'Enter'){
-                calculateShipping();
-            }
+<script>
+    function calculateShippingKeyDown(event){
+        if(event.key === 'Enter'){
+            calculateShipping();
+        }
+    }
+
+    function calculateShipping(){
+        const orderInputElement = document.querySelector('.js-calculate-button');
+        let cost = Number(orderInputElement.value) * 100;
+
+        if(cost < 4000){
+            cost += 1000;
         }
 
-        function calculateShipping(){
-            const orderInputElement = document.querySelector('.js-calculate-button');
-            let cost = Number(orderInputElement.value) * 100;
+        document.querySelector('.js-order-cost').innerHTML = `$${cost / 100}`;
+    }
 
-            if(cost < 4000){
-                cost = cost + 1000;
-            }
-
-            document.querySelector('.js-order-cost').innerHTML = `$${cost / 100}`
+    function nameDisplayKeyDown(event){
+        if(event.key === 'Enter'){
+            nameDisplay();
         }
+    }
 
-        function nameDisplayKeyDown(event){
-            if(event.key === 'Enter'){
-                nameDisplay();
-            }
-        }
+    function nameDisplay(){
+        const nameElement = document.querySelector('.js-input-name');
+        document.querySelector('.js-name-display').innerHTML = `Your name is: ${nameElement.value}`;
+    }
+</script>
 
-        function nameDisplay(){
-            const nameElement = document.querySelector('.js-input-name');
-            document.querySelector('.js-name-display').innerHTML = `Your name is: ${nameElement.value}`;
-        }
-
-    </script>
 </body>
 </html>

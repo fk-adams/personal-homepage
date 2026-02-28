@@ -61,7 +61,7 @@ function convertLength(length, from, to) {
         throw new Error(`Invalid conversion from ${from} to ${to}`);
     }
 
-    // Same-unit conversion
+    
     if (from === to) {
         return `${length} ${to}`;
     }

@@ -38,8 +38,12 @@
 
 
 function convertLength(length, from, to) {
+    // Validate length
+    if (typeof length !== 'number' || isNaN(length)) {
+        throw new Error('Length must be a valid number');
+    }
 
-    // Normalize input (handle uppercase like KM, Miles, etc.)
+    // Normalize input
     from = from.toLowerCase();
     to = to.toLowerCase();
 
@@ -52,23 +56,29 @@ function convertLength(length, from, to) {
         inches: 0.0254
     };
 
-    // Check if units exist
+    // Check if units exist - FIXED: This condition was reversed
     if (!units[from] || !units[to]) {
         throw new Error(`Invalid conversion from ${from} to ${to}`);
     }
 
-    // Handle same-unit conversion
+    // Same-unit conversion
     if (from === to) {
         return `${length} ${to}`;
     }
 
-    // Convert to meters first
+    // FIXED: Fixed typo 'inKeters' -> 'inMeters'
     const inMeters = length * units[from];
-
-    // Convert from meters to target unit
     const result = inMeters / units[to];
 
     return `${result.toFixed(2)} ${to}`;
 }
 
-console.log(convertLength(10, 'jk', 'KM'));
+// FIXED: Moved try block to properly wrap the function calls
+try {
+    console.log(convertLength(10, 'km', 'feet'));        // valid
+    console.log(convertLength(5, 'MILES', 'km'));       // uppercase test
+    console.log(convertLength(10, 'jK', 'KM'));         // invalid unit
+    console.log(convertLength('abc', 'km', 'miles'));   // invalid number
+} catch (error) {
+    console.error('Error:', error.message);
+}

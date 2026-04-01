@@ -13,68 +13,37 @@
   <p id="result"></p>
 
   <script>
-        // function squareNumber(num) {
-        //   return num * num;
-        // }
-
-        // function isEven(num) {
-        //   return num % 2 === 0;
-        // }
-
-        // let userNumber = prompt(`Enter a number:`);
-        // userNumber = Number(userNumber);
-
-        // if (isNaN(userNumber)) {
-        //   console.log(`${userNumber} is not a valid number, please enter NUMBERS only!!!`);
-        // } else {
-        //   console.log(`The square of ${userNumber} is ${squareNumber(userNumber)}`);
-
-        //   if (isEven(userNumber)) {
-        //     console.log(`${userNumber} is an even number`);
-        //   } else {
-        //     console.log(`${userNumber} is an odd number`);
-        //   }
-        // }
-
-
-        function numberSign(num) {
-        if (num > 0) {
-            return "positive";
-        } else if (num < 0) {
-            return "negative";
-        } else {
-            return "zero";
-        }
-        }
+        const input = document.querySelector('#numberInput');
+        const button = document.querySelector('#analyzeBtn');
+        const result = document.querySelector('#result');
 
         function squareNumber(num) {
-        return num * num;
+            return num * num;
         }
 
         function isEven(num) {
-        return num % 2 === 0;
-        }   
+            return num % 2 === 0;
+        }
 
-        let userNumber = prompt(`Enter a number:`);
-        userNumber = Number(userNumber);    
-        if (isNaN(userNumber)) {
-        console.log(`${userNumber} is not a valid number, please enter NUMBERS only!!!`);
-        } else {
-        console.log(`The square of ${userNumber} is ${squareNumber(userNumber)}`);
-        console.log(`${userNumber} is a ${numberSign(userNumber)} number`);
-        if (isEven(userNumber)) {
-            console.log(`${userNumber} is an even number`);
-        } else {
-            console.log(`${userNumber} is an odd number`);
+        function numberSign(num) {
+            if (num > 0) return "positive";
+            if (num < 0) return "negative";
+            return "zero";
         }
-        }
+
+        button.addEventListener('click', function () {
+            const userNumber = Number(input.value);
+
+            if (isNaN(userNumber) || input.value.trim() === '') {
+                result.textContent = "Please enter a valid number!";
+            } else {
+                result.textContent = `
+                    Square: ${squareNumber(userNumber)}\n
+                    Type: ${isEven(userNumber) ? "Even" : "Odd"}\n
+                    Sign: ${numberSign(userNumber)}
+                `;
+            }
+        });
   </script>
 </body>
 </html>
-
-
-
-
-
-
-

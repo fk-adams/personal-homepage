@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Number Analyzer</title>
+</head>
+<body>
+
+  <h1>Number Analyzer</h1>
+
+  <input type="text" id="numberInput" placeholder="Enter a number">
+  <button id="analyzeBtn">Analyze</button>
+
+  <p id="result"></p>
+
+  <script>
+        // function squareNumber(num) {
+        //   return num * num;
+        // }
+
+        // function isEven(num) {
+        //   return num % 2 === 0;
+        // }
+
+        // let userNumber = prompt(`Enter a number:`);
+        // userNumber = Number(userNumber);
+
+        // if (isNaN(userNumber)) {
+        //   console.log(`${userNumber} is not a valid number, please enter NUMBERS only!!!`);
+        // } else {
+        //   console.log(`The square of ${userNumber} is ${squareNumber(userNumber)}`);
+
+        //   if (isEven(userNumber)) {
+        //     console.log(`${userNumber} is an even number`);
+        //   } else {
+        //     console.log(`${userNumber} is an odd number`);
+        //   }
+        // }
+
+
+        function numberSign(num) {
+        if (num > 0) {
+            return "positive";
+        } else if (num < 0) {
+            return "negative";
+        } else {
+            return "zero";
+        }
+        }
+
+        function squareNumber(num) {
+        return num * num;
+        }
+
+        function isEven(num) {
+        return num % 2 === 0;
+        }   
+
+        let userNumber = prompt(`Enter a number:`);
+        userNumber = Number(userNumber);    
+        if (isNaN(userNumber)) {
+        console.log(`${userNumber} is not a valid number, please enter NUMBERS only!!!`);
+        } else {
+        console.log(`The square of ${userNumber} is ${squareNumber(userNumber)}`);
+        console.log(`${userNumber} is a ${numberSign(userNumber)} number`);
+        if (isEven(userNumber)) {
+            console.log(`${userNumber} is an even number`);
+        } else {
+            console.log(`${userNumber} is an odd number`);
+        }
+        }
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+

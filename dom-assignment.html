@@ -5,6 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DOM Assignment</title>
 <style>
+    body{
+        font-family: Arial;
+    }
+
+    a{
+        color: rgb(8, 8, 10);
+        text-decoration: none;
+    }
+
     .js-subscribe-button{
         background: black;
         border-radius: 50px;
@@ -14,11 +23,27 @@
         font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         font-weight: bold;
         cursor: pointer;
+        margin-bottom: 30px;
     }
 
     .is-subscribed{
         background: rgb(240, 240, 240);
         color: black;
+    }
+
+    .js-calculate-button{
+        font-size: 15px;
+        padding: 10px;
+        color: black;
+    }
+
+    .calculate-button{
+        font-size: 15px;
+        padding: 12px 15px;
+        background: green;
+        border: none;
+        color: white;
+        cursor: pointer;
     }
 </style>
 </head>
@@ -34,18 +59,18 @@
     <section>
         <p>Amazon Shipping Calculator</p>
         <input type="text" class="js-calculate-button" placeholder="Cost of order" onkeydown="calculateShippingKeyDown(event);">
-        <button type="submit" onclick="calculateShipping();">Submit</button>
+        <button type="submit" class="calculate-button" onclick="calculateShipping();">Calculate</button>
         <p class="js-order-cost output"></p>
     </section>
 
-    <!-- Name Input -->
+    <!-- Name Input
     <section>
         <input type="text" class="js-input-name" placeholder="Enter Your Name" onkeydown="nameDisplayKeyDown(event);">
         <button type="submit" onclick="nameDisplay();">Submit</button>
         <p class="js-name-display output"></p>
-    </section>
+    </section> -->
 
-    <!-- Coin Flip -->
+    <!-- Coin Flip
     <section>
         <p>Coin Flip</p>
         <div class="coin-buttons">
@@ -53,8 +78,10 @@
             <button onclick="document.querySelector('.js-coin-output').innerHTML = 'You chose Tails'">Tails</button>
         </div>
         <p class="js-coin-output coin-output"></p>
-    </section>
+    </section> -->
 </div>
+
+<p><a href="dom.html">Rock Paper Scissors</a></p>
 
 <script>
 

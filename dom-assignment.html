@@ -15,6 +15,11 @@
         font-weight: bold;
         cursor: pointer;
     }
+
+    .is-subscribed{
+        background: rgb(240, 240, 240);
+        color: black;
+    }
 </style>
 </head>
 <body>
@@ -22,9 +27,7 @@
 <div class="container">
     <section class="subscribe-section">
         <p>Youtube Subscribe button </p>
-        <button class="js-subscribe-button" onclick="
-            document.querySelector('.js-subscribe-button').innerHTML = 'Subscribed';
-        ">Subscribe</button>
+        <button onclick ="Subscribe();"  class="js-subscribe-button">Subscribe</button>
     </section>
 
     <!-- Shipping Calculator -->
@@ -54,6 +57,20 @@
 </div>
 
 <script>
+
+function Subscribe(){
+    const buttonElement = document.querySelector('.js-subscribe-button')
+            
+        if(buttonElement.innerHTML === 'Subscribe'){
+            buttonElement.innerHTML = 'Subscribed';
+            buttonElement.classList.add('is-subscribed')
+        }else{
+            buttonElement.innerHTML = 'Subscribe';
+            buttonElement.classList.remove('is-subscribed')
+         }
+    }
+
+
 function calculateShippingKeyDown(event){
     if(event.key === 'Enter') calculateShipping();
 }

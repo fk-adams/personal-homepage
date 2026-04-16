@@ -2,6 +2,19 @@ body {
         background-color: rgb(25, 25, 25);
         color: white;
         font-family: Arial;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        text-align: center;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 400px;
+        padding: 10px;
       }
 
       .title {
@@ -14,24 +27,23 @@ body {
       }
 
       .move-button {
-        width: 120px;
-        height: 120px;
-        border-radius: 60px;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
         border: 3px solid white;
-
         background-color: transparent;
-        margin-right: 10px;
+        margin: 5px;
         cursor: pointer;
       }
 
       .result {
         font-size: 25px;
         font-weight: bold;
-        margin-top: 50px;
+        margin-top: 30px;
       }
 
       .score {
-        margin-top: 60px;
+        margin-top: 40px;
       }
 
       .reset-score-button {
@@ -41,3 +53,24 @@ body {
         padding: 8px 15px;
         cursor: pointer;
       }
+
+      /* Mobile responsiveness */
+      @media (max-width: 500px) {
+        .move-button {
+          width: 80px;
+          height: 80px;
+        }
+
+        .move-icon {
+          height: 40px;
+        }
+
+        .title {
+          font-size: 24px;
+        }
+
+        .result {
+          font-size: 20px;
+        }
+      }
+    
